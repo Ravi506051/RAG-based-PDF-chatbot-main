@@ -79,3 +79,30 @@ ollama run mistral
 ```bash
 streamlit run app.py
 ```
+
+
+## 🚀 Future Improvements
+
+- Support multiple PDF documents in a single conversation
+- Improve semantic search and document retrieval quality
+- Add source references so users can verify answers against the original PDF
+- Improve handling of long and complex documents
+- Add chat history and a more user-friendly interface
+
+## 🧪 Testing and Evaluation
+
+Test the chatbot using PDFs with different topics and lengths. Ask factual questions, compare generated answers with the original document, and check whether the retrieved passages are relevant.
+
+Useful evaluation measures include retrieval precision, answer relevance, and faithfulness to the source document.
+
+## ⚠️ Limitations
+
+- Answer quality depends on the quality of PDF text extraction and retrieval.
+- Scanned PDFs may require OCR support.
+- AI-generated answers should be checked against the original document.
+
+## 👨‍💻 Project Maintainer
+
+Ravi Kumar Rao
+
+GitHub: https://github.com/Ravi506051
