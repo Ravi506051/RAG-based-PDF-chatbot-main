@@ -117,3 +117,9 @@ GitHub: https://github.com/Ravi506051
 ## Privacy and Limitations
 
 Documents may contain confidential information. Run the application only with files you are authorized to process, understand where embeddings and chat history are stored, and avoid exposing uploaded content in logs or public deployments. Generated answers can be incomplete or incorrect; verify important claims against the source PDF.
+
+## Project Development Notes
+
+Evaluate retrieval and answer faithfulness separately. Test questions answered by the PDF, absent from the PDF, and requiring follow-up; verify citations against source pages.
+
+For reproducible updates, record the dataset or upstream version, environment and dependency versions, configuration, and actual outputs from each run. Keep illustrative examples clearly labelled and never commit credentials or private data.
