@@ -106,3 +106,14 @@ Useful evaluation measures include retrieval precision, answer relevance, and fa
 Ravi Kumar Rao
 
 GitHub: https://github.com/Ravi506051
+
+## Retrieval Quality Checklist
+
+- Test questions whose answers are clearly present, partially present, and absent from the uploaded PDF.
+- Inspect retrieved chunks to confirm that the answer is grounded in relevant passages.
+- Tune chunk size and overlap using a small, repeatable evaluation set rather than assuming one configuration works for every document.
+- Verify that follow-up questions do not silently use irrelevant context from earlier documents.
+
+## Privacy and Limitations
+
+Documents may contain confidential information. Run the application only with files you are authorized to process, understand where embeddings and chat history are stored, and avoid exposing uploaded content in logs or public deployments. Generated answers can be incomplete or incorrect; verify important claims against the source PDF.
