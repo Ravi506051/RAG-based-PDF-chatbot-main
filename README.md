@@ -123,3 +123,9 @@ Documents may contain confidential information. Run the application only with fi
 Evaluate retrieval and answer faithfulness separately. Test questions answered by the PDF, absent from the PDF, and requiring follow-up; verify citations against source pages.
 
 For reproducible updates, record the dataset or upstream version, environment and dependency versions, configuration, and actual outputs from each run. Keep illustrative examples clearly labelled and never commit credentials or private data.
+
+### Technical Deep Dive
+
+A typical PDF RAG pipeline is document parsing → text normalization → chunking → embedding generation → FAISS indexing → top-k retrieval → prompt construction → local LLM response. Retrieval quality depends on chunk size, overlap, embedding model, and search configuration; tune these against a fixed set of document-question pairs instead of choosing values by intuition alone.
+
+Suggested engineering checks: display source-page references with answers, test questions absent from the PDF, rebuild the index when documents or embedding settings change, and isolate indexes/history between users. Treat retrieved document text as untrusted input and verify important answers against the source.
