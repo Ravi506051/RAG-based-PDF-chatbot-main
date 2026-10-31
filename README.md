@@ -137,3 +137,11 @@ Suggested engineering checks: display source-page references with answers, test 
 - Evaluate retrieval relevance, answer faithfulness, latency, and behaviour on scanned PDFs, tables, and long documents.
 - Record chunk size/overlap, embedding model, vector-store settings, and LLM version for reproducible comparisons.
 - Treat uploaded documents as untrusted input, avoid exposing private documents in logs, and verify important answers against the original file.
+
+## Retrieval-Augmented Generation Quality
+
+- Extract PDF text with page metadata so retrieved passages can be traced to their source pages.
+- Chunk documents with overlap and preserve document identifiers and page references in metadata.
+- Evaluate retrieval quality separately from answer generation using representative questions and expected source passages.
+- Ground responses in retrieved context, cite relevant pages, and state when the documents do not contain an answer.
+- Test scanned PDFs, tables, long documents, and malformed files; use OCR only where needed.
