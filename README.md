@@ -129,3 +129,11 @@ For reproducible updates, record the dataset or upstream version, environment an
 A typical PDF RAG pipeline is document parsing → text normalization → chunking → embedding generation → FAISS indexing → top-k retrieval → prompt construction → local LLM response. Retrieval quality depends on chunk size, overlap, embedding model, and search configuration; tune these against a fixed set of document-question pairs instead of choosing values by intuition alone.
 
 Suggested engineering checks: display source-page references with answers, test questions absent from the PDF, rebuild the index when documents or embedding settings change, and isolate indexes/history between users. Treat retrieved document text as untrusted input and verify important answers against the source.
+
+## Retrieval Evaluation and Security
+
+- Test questions whose answers are present, absent, and only partially supported by the uploaded PDF.
+- Inspect retrieved chunks and verify that generated claims are supported by the source passages.
+- Evaluate retrieval relevance, answer faithfulness, latency, and behaviour on scanned PDFs, tables, and long documents.
+- Record chunk size/overlap, embedding model, vector-store settings, and LLM version for reproducible comparisons.
+- Treat uploaded documents as untrusted input, avoid exposing private documents in logs, and verify important answers against the original file.
