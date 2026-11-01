@@ -145,3 +145,10 @@ Suggested engineering checks: display source-page references with answers, test 
 - Evaluate retrieval quality separately from answer generation using representative questions and expected source passages.
 - Ground responses in retrieved context, cite relevant pages, and state when the documents do not contain an answer.
 - Test scanned PDFs, tables, long documents, and malformed files; use OCR only where needed.
+
+## Retrieval Quality and Evaluation
+
+- Evaluate retrieval separately from answer generation: inspect whether the correct source chunks appear in the top-k results.
+- Test questions with direct answers, multi-page answers, conflicting passages, and no answer in the uploaded PDF.
+- Keep chunk size, overlap, embedding model, vector-store settings, and LLM version configurable and documented.
+- Include source/page references in responses where possible, and tell users when the document does not contain enough evidence.
