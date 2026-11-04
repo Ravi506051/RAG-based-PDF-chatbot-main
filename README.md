@@ -38,3 +38,16 @@ Add source-page citations, retrieval evaluation, configurable chunking and docum
 
 ## Maintainer
 **Ravi Kumar Rao** · [GitHub](https://github.com/Ravi506051)
+
+## Skills Demonstrated
+
+- PDF ingestion
+- text chunking
+- embeddings
+- FAISS vector retrieval
+- local LLM integration
+- retrieval evaluation.
+
+## Portfolio Context
+
+This project is part of my hands-on learning portfolio. The repository documents the workflow and implementation; results should be reproduced from the included code and data before being used in reports or professional claims.
