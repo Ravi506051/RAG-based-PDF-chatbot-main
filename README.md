@@ -48,3 +48,10 @@ Test with short and long PDFs, scanned documents, empty files, and questions wit
 - Tune chunk size, overlap, and retrieval count using representative documents and queries.
 - Keep source passages available so users can verify generated answers.
 - Test scanned PDFs, tables, long documents, and questions whose answers are absent from the source; the system should communicate uncertainty.
+
+## Document Coverage Tests
+
+- Include digital PDFs and scanned PDFs in testing; scanned pages may require OCR before retrieval.
+- Check extraction of tables, multi-column layouts, headers, and page boundaries.
+- Keep page references with each chunk to make answers easier to verify.
+- Test questions that are not answered by the uploaded document and ensure the application does not invent missing facts.
