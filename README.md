@@ -41,3 +41,10 @@ Test with short and long PDFs, scanned documents, empty files, and questions wit
 
 ## Maintainer
 **Ravi Kumar Rao** · [GitHub](https://github.com/Ravi506051)
+
+## Retrieval Quality and Grounding
+
+- Evaluate whether retrieved chunks actually contain evidence relevant to each question.
+- Tune chunk size, overlap, and retrieval count using representative documents and queries.
+- Keep source passages available so users can verify generated answers.
+- Test scanned PDFs, tables, long documents, and questions whose answers are absent from the source; the system should communicate uncertainty.
