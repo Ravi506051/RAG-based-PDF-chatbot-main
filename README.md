@@ -1,57 +1,38 @@
-# Smart PDF Chatbot — Retrieval-Augmented Generation
+# Smart PDF Chatbot
 
-A document question-answering application that allows users to upload PDF files and ask questions about their contents. The RAG workflow retrieves relevant document passages and supplies them as context for answer generation.
+A Streamlit retrieval-augmented generation demo for asking questions about a PDF. It extracts text, creates chunks and embeddings, retrieves passages with FAISS, and uses an Ollama model to draft an answer.
 
-## Features
-- PDF upload and text extraction.
-- Text chunking and embedding generation.
-- Similarity search with FAISS.
-- Context-aware question answering.
-- Local language-model inference through Ollama.
-- Streamlit user interface.
+## Pipeline
 
-## Architecture
-```text
-PDF → Text Extraction → Chunking → Embeddings
-    → FAISS Search → Retrieved Context
-    → Ollama LLM → Answer
-```
+~~~text
+PDF → extraction → chunks → embeddings → FAISS retrieval
+    → selected context → Ollama response
+~~~
 
-## Technology
-Python · Streamlit · LangChain · FAISS · Hugging Face Embeddings · Sentence Transformers · Ollama
+The current implementation uses 700-character chunks with 100-character overlap, sentence-transformers/all-MiniLM-L6-v2 embeddings, MMR retrieval with up to three passages, and the configured Ollama model (mistral in the current app). It retains a short recent chat history.
 
-## Setup
-```bash
+## Run locally
+
+~~~bash
 git clone https://github.com/Ravi506051/RAG-based-PDF-chatbot-main.git
 cd RAG-based-PDF-chatbot-main
 python -m venv .venv
 # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
-```
-Install Ollama, download the model configured by the application, and launch the Streamlit entry point documented in the repository.
+~~~
 
-## Quality Checks
-Test with short and long PDFs, scanned documents, empty files, and questions with no supporting passage. Review retrieved chunks to verify that generated answers are grounded in the source document. Avoid uploading confidential documents to untrusted environments.
+Install and start Ollama, pull the model configured in app.py, then run:
 
-## Future Improvements
-- Display source-page references with answers.
-- Evaluate retrieval precision and answer faithfulness.
-- Make chunk size and overlap configurable.
-- Add document-level access controls.
+~~~bash
+streamlit run app.py
+~~~
+
+The repository includes economics.pdf as a sample document.
+
+## Quality and privacy
+
+Answers depend on extracted text and retrieved passages. Verify important answers against the source PDF. Scanned documents, tables, multi-column layouts, and questions not answered in the PDF may produce incomplete responses. Do not upload confidential files to an environment you do not trust.
 
 ## Maintainer
-**Ravi Kumar Rao** · [GitHub](https://github.com/Ravi506051)
 
-## Retrieval Quality and Grounding
-
-- Evaluate whether retrieved chunks actually contain evidence relevant to each question.
-- Tune chunk size, overlap, and retrieval count using representative documents and queries.
-- Keep source passages available so users can verify generated answers.
-- Test scanned PDFs, tables, long documents, and questions whose answers are absent from the source; the system should communicate uncertainty.
-
-## Document Coverage Tests
-
-- Include digital PDFs and scanned PDFs in testing; scanned pages may require OCR before retrieval.
-- Check extraction of tables, multi-column layouts, headers, and page boundaries.
-- Keep page references with each chunk to make answers easier to verify.
-- Test questions that are not answered by the uploaded document and ensure the application does not invent missing facts.
+Ravi Kumar Rao · [GitHub](https://github.com/Ravi506051)
